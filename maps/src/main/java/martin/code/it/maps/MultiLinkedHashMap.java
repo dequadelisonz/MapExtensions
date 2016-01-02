@@ -18,33 +18,33 @@ package martin.code.it.maps;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-public class MultiLinkedHashMap<K1,K2,V>  {
+public class MultiLinkedHashMap<K1, K2, V> {
 
-    private LinkedHashMap<K1,LinkedHashMap<K2,V>> lHmpaK1;
+    private LinkedHashMap<K1, LinkedHashMap<K2, V>> lHmpaK1;
 
-    public MultiLinkedHashMap(){
-        lHmpaK1=new LinkedHashMap<>();
+    public MultiLinkedHashMap() {
+        lHmpaK1 = new LinkedHashMap<>();
     }
 
-    public V get(K1 key1,K2 key2 ){
-        LinkedHashMap tempK1=lHmpaK1.get(key1);
-        if (tempK1==null) return null;
+    public V get(K1 key1, K2 key2) {
+        LinkedHashMap tempK1 = lHmpaK1.get(key1);
+        if (tempK1 == null) return null;
         else return lHmpaK1.get(key1).get(key2);
     }
 
-    public void put(K1 key1,K2 key2,V o) {
-        LinkedHashMap<K2,V> tempK2=lHmpaK1.get(key1);
-        if (tempK2==null) {
-            tempK2=new LinkedHashMap();
-            lHmpaK1.put(key1,tempK2);
+    public void put(K1 key1, K2 key2, V o) {
+        LinkedHashMap<K2, V> tempK2 = lHmpaK1.get(key1);
+        if (tempK2 == null) {
+            tempK2 = new LinkedHashMap();
+            lHmpaK1.put(key1, tempK2);
         }
-        tempK2.put(key2,o);
+        tempK2.put(key2, o);
     }
 
-    public ArrayList<V> valuesByArrayList(){
-        ArrayList<V> retVal=new ArrayList<>();
-        for(LinkedHashMap<K2,V> l:lHmpaK1.values()){
-            for (V v:l.values()){
+    public ArrayList<V> valuesByArrayList() {
+        ArrayList<V> retVal = new ArrayList<>();
+        for (LinkedHashMap<K2, V> l : lHmpaK1.values()) {
+            for (V v : l.values()) {
                 retVal.add(v);
             }
         }
@@ -52,22 +52,22 @@ public class MultiLinkedHashMap<K1,K2,V>  {
     }
 
     //get an ArrayList with all occurrences of objects V that match with key2
-    public ArrayList<V> getByKey2(K2 key2){
-        ArrayList<V> retVal=new ArrayList<>();
-        for(LinkedHashMap<K2,V> l:lHmpaK1.values()){
-            for (K2 k2:l.keySet()){
+    public ArrayList<V> getByKey2(K2 key2) {
+        ArrayList<V> retVal = new ArrayList<>();
+        for (LinkedHashMap<K2, V> l : lHmpaK1.values()) {
+            for (K2 k2 : l.keySet()) {
                 if (k2.equals(key2)) retVal.add(l.get(key2));
             }
         }
         return retVal;
     }
 
-    public LinkedHashMap<K2,V> getByKey1(K1 key1){
+    public LinkedHashMap<K2, V> getByKey1(K1 key1) {
         return lHmpaK1.get(key1);
     }
 
-    public void clear(){
-        for(LinkedHashMap<K2,V> l:lHmpaK1.values()){
+    public void clear() {
+        for (LinkedHashMap<K2, V> l : lHmpaK1.values()) {
             l.clear();
         }
         lHmpaK1.clear();
