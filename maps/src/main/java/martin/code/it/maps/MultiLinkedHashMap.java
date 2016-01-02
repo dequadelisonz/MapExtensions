@@ -70,7 +70,7 @@ public class MultiLinkedHashMap<K1, K2, V> {
 
     /**
      * Used to get all the elements of the Map in the form of an ArrayList.
-     * @return an ArrayList<V> object containing all the Map elements.
+     * @return an ArrayList object containing all the Map elements.
      * @see MultiLinkedHashMap
      */
     public ArrayList<V> valuesByArrayList() {
@@ -88,7 +88,7 @@ public class MultiLinkedHashMap<K1, K2, V> {
      * Get an ArrayList with all occurrences of objects V that match with key2, indipendently from key1.
      * See also {@link #get(Object, Object)}, {@link #getByKey1(Object)} and {@link #put(Object, Object, Object)}.
      * @param key2 the second key to identify one or more elements in the Map.
-     * @return an ArrayList<V> object containing the Map elements stored with the given key.
+     * @return an ArrayList object containing the Map elements stored with the given key.
      * @see MultiLinkedHashMap
      */
     public ArrayList<V> getByKey2(K2 key2) {
@@ -104,7 +104,7 @@ public class MultiLinkedHashMap<K1, K2, V> {
     /**
      * Get a LinkedHashMap with the elements corresponding to key1.
      * See also {@link #get(Object, Object)}, {@link #getByKey2(Object)} and {@link #put(Object, Object, Object)}.
-     * @param key1
+     * @param key1 the first key to identify one or more elements in the Map.
      * @return a Map related to elements corresponding to the given key.
      * @see MultiLinkedHashMap
      */
