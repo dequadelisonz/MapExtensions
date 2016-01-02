@@ -23,7 +23,7 @@ public class MultiLinkedHashMap<K1, K2, V> {
     private LinkedHashMap<K1, LinkedHashMap<K2, V>> lHmpaK1;
 
     public MultiLinkedHashMap() {
-        lHmpaK1 = new LinkedHashMap<>();
+        lHmpaK1 = new LinkedHashMap();
     }
 
     public V get(K1 key1, K2 key2) {
@@ -42,7 +42,7 @@ public class MultiLinkedHashMap<K1, K2, V> {
     }
 
     public ArrayList<V> valuesByArrayList() {
-        ArrayList<V> retVal = new ArrayList<>();
+        ArrayList<V> retVal = new ArrayList();
         for (LinkedHashMap<K2, V> l : lHmpaK1.values()) {
             for (V v : l.values()) {
                 retVal.add(v);
@@ -53,7 +53,7 @@ public class MultiLinkedHashMap<K1, K2, V> {
 
     //get an ArrayList with all occurrences of objects V that match with key2
     public ArrayList<V> getByKey2(K2 key2) {
-        ArrayList<V> retVal = new ArrayList<>();
+        ArrayList<V> retVal = new ArrayList();
         for (LinkedHashMap<K2, V> l : lHmpaK1.values()) {
             for (K2 k2 : l.keySet()) {
                 if (k2.equals(key2)) retVal.add(l.get(key2));
